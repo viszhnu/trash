@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample api data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+     
+<script>
+
+var generator=function(dis, str, arr){
+     
+     console.log(str);
+    
+     var num;
+     
+     if(str===undefined){
+     
+     var min=10000000;
+     var max=99999999;
+     
+     num=Math.floor(Math.random()*(max-min-1))+min;
+     
+     var x="";
+     
+     x=x+num;
+     
+     var arr1=[0,0,0,0,0,0,0,0,0,0];
+     
+     generator(dis, x, arr1);
+     
+     }else{
+
+          var i;
+
+          for(i=0;i<str.length;i++){
+
+               var y=parseInt(str.charCodeAt(i)-48);
+               
+               if(arr[y]===0){
+
+                  arr[y]=1;
+             
+               }else{
+                 
+                    console.log("ff")
+                  generator(dis,undefined, [0,0,0,0,0,0,0,0,0,0]);
+                  return;
+             
+               }
+          }
+
+          if(i===str.length){
+              
+               dis.innerHTML=str;
+          
+          }
+     }
+    
+}
+
+var divv=document.createElement("div");
+divv.setAttribute("class", "container");
+
+var divvrow=document.createElement("div");
+divvrow.setAttribute("class", "row");
+
+var divvcol=document.createElement("div");
+divvcol.setAttribute("class", "col-md-6 offset-md-3 p-3 mb-2 bg-dark text-center");
+
+var heading=document.createElement("h1");
+heading.innerHTML="UNIQUE 8 DIGIT RANDOM NUMBER GENERATOR"
+heading.setAttribute("class", "display-4 mb-4 mt-5");
+heading.setAttribute("class","p-3 mb-2 bg-info text-white");
+
+var lab=document.createElement("button");
+lab.setAttribute("class","p-3 mb-2 bg-secondary text-white");
+lab.setAttribute("id","but");
+lab.setAttribute("type","button");
+lab.innerHTML="generate"
+
+var dis=document.createElement("p");
+dis.setAttribute("class"," p-3 mb-2 bg-success text-white text-center align-middle");
+dis.setAttribute("id", "random");
+lab.setAttribute("onclick", "generator(dis, undefined, [0,0,0,0,0,0,0,0,0,0])");
+
+
+divvcol.append(heading,lab,dis)
+divvrow.append(divvcol)
+divv.append(divvrow)
+
+/*var divvrow1=document.createElement("div");
+divvrow1.setAttribute("class", "row");
+
+var divvcol1=document.createElement("div");
+divvcol1.setAttribute("class", "col-md-6 offset-md-3 p-3 mb-2 bg-dark text-center");
+
+var heading1=document.createElement("h1");
+heading1.innerHTML="DATE MANIPULATION"
+heading1.setAttribute("class", "display-4 mb-4 mt-5");
+heading1.setAttribute("class","p-3 mb-2 bg-info text-white");
+
+var date=document.createElement("input");
+date.setAttribute("class","p-3 mb-2 bg-secondary text-white");
+date.setAttribute("id", "date");
+date.setAttribute("type", "date");
+console.log(date);
+var test=[0,0,0,0,0,0,0,0,0,0]
+lab.setAttribute("onclick", "generator(dis, "", test)");
+
+
+
+divvcol1.append(heading1,date);
+divvrow1.append(divvcol1);
+divv.append(divvrow1);*/
+document.body.append(divv);
+ 
+     
+</script>
+
+</body>
